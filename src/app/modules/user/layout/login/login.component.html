@@ -1,0 +1,25 @@
+<div class="login card ">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> 
+        <h1 class="text-center">Login</h1>
+        <div class="mb-3">
+          <input 
+          type="text" 
+          class="form-control" 
+          formControlName="username"
+          placeholder="Username or email"
+          >
+        </div>
+        <div class="mb-3">
+          <input 
+          type="password" 
+          class="form-control"
+          formControlName="password"
+          placeholder="Password"
+          >
+        </div>
+        <button [disabled]="!loginForm.valid" type="submit " class="btn btn-primary container-fluid">Login</button>
+      </form>
+      <div class="m-3 text-center">
+          <a class="" routerLink="/register">Don't have an account? SignUp </a>
+      </div>
+</div>  

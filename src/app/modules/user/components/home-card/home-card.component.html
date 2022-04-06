@@ -1,0 +1,12 @@
+<div class="card"  style="width: 18rem;" >
+    <img [src]="product.thumbnail " (click)="toDetailsPage(product.id)" class="card-img-top"  alt="{{product.title}}">
+    <div class="card-body">
+      <h5 class="card-title" (click)="toDetailsPage(product.id)"    >{{product.title}}</h5>
+      <p class="d-inline-block text-truncate" style="max-width: 250px;">{{product.description}}</p>
+      <p><strong>Prices: <span style="color: green;"><strong>{{product.price | currency:"INR"}}</strong></span></strong></p>
+      <div class="center p-2">
+        <button class="btn btn-warning " (click)="onCart()"><mat-icon>shopping_cart</mat-icon></button>
+        <button class="btn btn-danger ms-2" (click)="onWishList()"><mat-icon>favorite</mat-icon></button>
+    </div>
+    </div>
+  </div>

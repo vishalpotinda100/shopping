@@ -1,0 +1,9 @@
+.row{
+    width: 100%;
+}
+.col:nth-last-child(0){
+    flex:1;
+}
+.col:nth-last-child(1){
+    flex: 11;
+}

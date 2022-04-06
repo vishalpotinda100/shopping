@@ -1,0 +1,17 @@
+<div class="card m-3" style="max-width:800px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img width="100%" height="150px" [src]="products.thumbnail" alt="products.title">
+      </div>
+      <div class="col-md-6 p-2">
+          <h1 class="card-title">{{products.title}}</h1>
+          <p class="d-inline-block text-truncate" style="max-width: 250px;">{{products.description}}</p>
+          <p><strong>Price:</strong><strong class="text-success">{{products.price | currency:'INR'}}</strong></p>
+          <p><strong>Category:</strong><strong style="color: red;">{{products.category}}</strong></p>
+      </div>
+      <div class="col-md-2 p-2 btn-control">
+        <button class="btn btn-danger">Remove</button>
+        <button class="btn btn-primary mt-2">Update</button>
+      </div>
+    </div>
+  </div>
