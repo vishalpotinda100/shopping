@@ -1,4 +1,6 @@
 import { Component,Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-product-list-card',
@@ -8,9 +10,18 @@ import { Component,Input, OnInit } from '@angular/core';
 export class ProductListCardComponent implements OnInit {
 
   @Input() products:any;
-  constructor() { }
+  constructor(
+    private _productService:ProductsService,
+    private _roter:Router
+     ) { }
 
   ngOnInit(): void {
+  }
+  onRemoveProduct(id:number){
+    this._productService.removeProduct(id);
+    this._roter.navigate(['admin']);
+    
+    
   }
 
 }

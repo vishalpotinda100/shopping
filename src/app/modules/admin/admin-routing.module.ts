@@ -13,12 +13,12 @@ const routes: Routes = [
     path:'admin',
     component:AdminComponent,
     children:[
-      {path:'',component:DashboardComponent,pathMatch:'full'},
+      {path:'',component:ProductListComponent,pathMatch:'full'},
       {path:'add',component:AddComponent},
       {path:'update',component:UpdateComponent},
       {path:'login',component:LoginComponent},
       {path:'register',component:RegisterComponent},
-      {path:'product-list',component:ProductListComponent}
+      {path:'dashboard',component:DashboardComponent}
 
     ]
   }

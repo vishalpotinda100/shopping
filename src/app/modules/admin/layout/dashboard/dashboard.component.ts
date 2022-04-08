@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   payment:number=23455558;
-  constructor() { }
+  products!:number;
+  constructor(private _dashboardService:DashboardService) { }
 
   ngOnInit(): void {
+    this._dashboardService.products.subscribe((product:any)=>{
+      this.products=product;
+    })
   }
 
 }

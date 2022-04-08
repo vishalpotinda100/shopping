@@ -11,6 +11,7 @@ import { ProductsService } from '../../services/products.service';
 export class AddComponent implements OnInit {
 
   productForm!:FormGroup;
+  isTitle:boolean=false;
   id:Date=new Date();
   constructor(private _productService:ProductsService,private router:Router) { }
   
@@ -21,7 +22,7 @@ export class AddComponent implements OnInit {
       'id':new FormControl(this.id.getTime()+Math.floor(Math.random()*100000)),
       'title':new FormControl('',[Validators.required]),
       'description':new FormControl(null,[Validators.required]),
-      'price':new FormControl(null,[Validators.required,Validators.minLength(1) ,Validators.maxLength(6)]),
+      'price':new FormControl(null,[Validators.required,Validators.minLength(1) ,Validators.min(1)]),
       'category':new FormControl(null,[Validators.required]),
       'thumbnail':new FormControl(null,[Validators.required])
     })

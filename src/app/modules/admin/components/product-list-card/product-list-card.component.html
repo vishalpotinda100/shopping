@@ -10,7 +10,7 @@
           <p><strong>Category:</strong><strong style="color: red;">{{products.category}}</strong></p>
       </div>
       <div class="col-md-2 p-2 btn-control">
-        <button class="btn btn-danger">Remove</button>
+        <button class="btn btn-danger" (click)="onRemoveProduct(products.id)" >Remove</button>
         <button class="btn btn-primary mt-2">Update</button>
       </div>
     </div>

@@ -29,12 +29,18 @@ export class ProductsService implements OnInit{
   }
 
   addProudct(products:any){
-    return  this._http.post(
-      "http://localhost:3000/products",
-      products
-      ).subscribe((res:any)=>{
-        console.log("Sucessully Added !")
-      })
+    return  this._http.post("http://localhost:3000/products",products)
+              .subscribe((res:any)=>{
+              console.log("Sucessully Added !")
+               })
+  }
+
+  removeProduct(id:any){
+    const url=`http://localhost:3000/products/${id}`;
+    return this._http.delete(url).subscribe((product:any)=>{
+      console.log(product);
+    })
+
   }
 
   

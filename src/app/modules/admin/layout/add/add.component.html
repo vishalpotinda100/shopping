@@ -3,7 +3,7 @@
   <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div class="mb-1">
       <label for="exampleInputEmail1" class="form-label">Title</label>
-      <input type="text" formControlName="title" class="form-control" />
+      <input  type="text" formControlName="title" class="form-control" />
     </div>
 
     <div class="mb-1">
@@ -26,6 +26,6 @@
         <input type="text" formControlName="thumbnail" class="form-control" />
       </div>
 
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button [disabled]="!productForm.valid" type="submit" class="btn btn-primary">Add</button>
   </form>
 </div>
