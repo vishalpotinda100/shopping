@@ -1,5 +1,5 @@
 <div *ngIf="cartshow;else page">
-    <app-cart-cart *ngFor="let cart of carts" [cart]="cart" ></app-cart-cart>
+    <app-cart-cart *ngFor="let cart of carts;let i=index" [cart]="cart" [index]="i" ></app-cart-cart>
 </div>
 <ng-template #page>
     <div class="container">

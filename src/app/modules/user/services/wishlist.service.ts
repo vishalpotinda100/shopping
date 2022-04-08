@@ -26,6 +26,13 @@ export class WishlistService {
    return this.shopCardProduct;
  }
 
+
+ removeWishList(id:number){
+  const filterCart = this.products.splice(id,1);
+  this.shopCardProduct.next(this.products);
+ 
+}
+
  
 
 

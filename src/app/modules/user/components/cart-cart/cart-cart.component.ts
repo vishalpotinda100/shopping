@@ -9,6 +9,7 @@ import { WishlistService } from '../../services/wishlist.service';
 })
 export class CartCartComponent implements OnInit {
   @Input() cart:any;
+  @Input() index!:number;
   constructor(
     private _cartService:CartService,
     private _wishlistService:WishlistService
@@ -18,9 +19,8 @@ export class CartCartComponent implements OnInit {
     
   }
 
-  onDeleteCart(id:number){
-   
-
+  onDeleteCart(id:number){  
+      this._cartService.removeCart(this.index);
   }
   onWishlist(){
     this._wishlistService.shop(this.cart);

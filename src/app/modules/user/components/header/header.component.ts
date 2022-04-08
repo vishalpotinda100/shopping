@@ -21,16 +21,20 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this._wishlistService.shopCardProduct.subscribe((item:any)=>{
-      if(item.length > 0)
       this.showWishlist=true;
       this.wishListLength=item.length;
+      if(item.length===0){
+        this.showWishlist=false;
+      }
     })
  
     this._cartService.cartProduts.subscribe((cart:any)=>{
-        if(cart.length > 0){
           this.showCart=true;
           this.cartLength=cart.length;
-        }
+          if(cart.length===0){
+            this.showCart=false;
+          }
+        
     })
   }
 

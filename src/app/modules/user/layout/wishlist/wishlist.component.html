@@ -1,6 +1,6 @@
 
 <div *ngIf="wishlistshow;else page">
-    <app-wishlist-card *ngFor="let wishlist of wishlists" [wishlist]="wishlist" ></app-wishlist-card>
+    <app-wishlist-card *ngFor="let wishlist of wishlists;let i=index" [wishlist]="wishlist" [index]="i" ></app-wishlist-card>
 </div>
 <ng-template #page>
     <div class="container">

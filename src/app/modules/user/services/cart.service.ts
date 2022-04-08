@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Subject,BehaviorSubject} from 'rxjs'
 @Injectable({
@@ -10,7 +9,7 @@ export class CartService {
   carts:any[]=new Array<any>();
 
 
-  constructor(private _http:HttpClient) { 
+  constructor() { 
     this.cartProduts=new BehaviorSubject<Array<any>>(new Array<any>())
   }
 
@@ -23,8 +22,10 @@ export class CartService {
     return this.cartProduts;
   }
 
-  removeCart(){
-    
+  removeCart(id:number){
+    const filterCart = this.carts.splice(id,1);
+    this.cartProduts.next(this.carts);
+   
   }
 
   
