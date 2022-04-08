@@ -5,7 +5,7 @@
           <img style="height: 100px;width: 100%;margin:3px;" [src]="cart.thumbnail" class="img-fluid rounded-start" alt="{{cart.title}}"><br>
           <p><strong>Price: </strong><strong class="text-success">{{cart.price | currency:'INR'}}</strong></p>
           <button class="btn btn-danger">Buy</button>
-          <button class="btn btn-warning ms-3">WishList</button>
+          <button class="btn btn-warning ms-3" (click)="onWishlist()">WishList</button>
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -13,7 +13,7 @@
             <p class="d-inline-block text-truncate" style="max-width: 250px;">{{cart.description}}</p>
             <p class="card-text"><small class="text-muted">{{cart.category}}</small></p>
             <div class="d-flex">
-              <button class="btn" style="display: flex;align-self: end;"><mat-icon>delete</mat-icon></button>
+              <button (click)="onDeleteCart(cart.id)" class="btn" style="display: flex;align-self: end;"><mat-icon>delete</mat-icon></button>
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@ import { WishlistService } from '../../services/wishlist.service';
 export class HomeCardComponent implements OnInit {
 
   @Input() product:any;
+  wishlists : any[] = new Array<any>() ;
 
   constructor(
     private _cartService:CartService,
@@ -19,14 +20,15 @@ export class HomeCardComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-
+   
   }
 
   onCart(){
     this._cartService.addCart(this.product);
   }
+
   onWishList(){
-    this._wishlistService.addWishList(this.product);
+  this._wishlistService.shop(this.product);
   }
   toDetailsPage(id:number){
    this.router.navigate(['product-details/'+id])

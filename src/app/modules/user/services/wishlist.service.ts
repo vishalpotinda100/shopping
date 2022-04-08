@@ -1,28 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {map} from 'rxjs/operators'
+import {BehaviorSubject,Subject} from 'rxjs'
 @Injectable({
   providedIn: 'root'
 })
 export class WishlistService {
 
-  constructor(private _http:HttpClient) { }
-  addWishList(cart:any){
-    return this._http.post('https://shopping-angular-39a9b-default-rtdb.firebaseio.com/wishlist.json',
-    cart).subscribe((res:any)=>{
-      console.log(res);
-    })
+  cart=new BehaviorSubject([]);
+
+  shopCardProduct = new Subject<any[]>();
+  products : any[] = new Array<any>() ;
+
+
+  constructor(private _http:HttpClient){
+      this.shopCardProduct = new BehaviorSubject<any>(new Array<any>())
   }
 
-  getWishList(){
-    return this._http.get('https://shopping-angular-39a9b-default-rtdb.firebaseio.com/wishlist.json')
-                  .pipe(map((resData:any)=>{
-                    const wishList=[];
-                    for(let key in resData){
-                      wishList.push(resData[key]);
-                    }
-                    return wishList;
-                  }))
-  }
+
+  shop(product: any){
+    this.products.push(product);
+    this.shopCardProduct.next(this.products);
+ }
+
+ getWishlist(){
+   return this.shopCardProduct;
+ }
+
+ 
+
+
+
  
 }

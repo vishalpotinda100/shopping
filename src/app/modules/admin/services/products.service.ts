@@ -17,7 +17,7 @@ export class ProductsService implements OnInit{
 
   
   getProduct(){
-   return this._http.get("https://shopping-angular-39a9b-default-rtdb.firebaseio.com/products.json")
+   return this._http.get("http://localhost:3000/products")
     .pipe(map((resData:any)=>{
       const productList=[];
       for(let key in resData){
@@ -30,7 +30,7 @@ export class ProductsService implements OnInit{
 
   addProudct(products:any){
     return  this._http.post(
-      "https://shopping-angular-39a9b-default-rtdb.firebaseio.com/products.json",
+      "http://localhost:3000/products",
       products
       ).subscribe((res:any)=>{
         console.log("Sucessully Added !")

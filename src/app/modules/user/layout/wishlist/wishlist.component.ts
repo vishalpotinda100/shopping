@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../../../admin/services/products.service';
 import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
@@ -10,9 +9,13 @@ import { WishlistService } from '../../services/wishlist.service';
 export class WishlistComponent implements OnInit {
   constructor( private _wishlistServiceL:WishlistService) { }
   wishlists=[];
+  wishlistshow:boolean=false;
   ngOnInit(): void {
-    this._wishlistServiceL.getWishList().subscribe((wishlist:any)=>{
-      this.wishlists=wishlist;
+    this._wishlistServiceL.getWishlist().subscribe((item:any)=>{
+      if(item.length >0){
+        this.wishlistshow=true;
+        this.wishlists=item;
+      }
     })
   }
 

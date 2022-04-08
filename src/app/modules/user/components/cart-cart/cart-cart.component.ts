@@ -1,4 +1,6 @@
 import { Component,Input, OnInit } from '@angular/core';
+import { CartService } from '../../services/cart.service';
+import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
   selector: 'app-cart-cart',
@@ -7,10 +9,30 @@ import { Component,Input, OnInit } from '@angular/core';
 })
 export class CartCartComponent implements OnInit {
   @Input() cart:any;
-  constructor() { }
+  constructor(
+    private _cartService:CartService,
+    private _wishlistService:WishlistService
+    ) { }
 
   ngOnInit(): void {
+    
   }
+
+  onDeleteCart(id:number){
+   
+
+  }
+  onWishlist(){
+    this._wishlistService.shop(this.cart);
+  }
+
+  
+
+ 
+
+
+  
+
 
 
 }

@@ -1,1 +1,9 @@
-<app-cart-cart *ngFor="let cart of carts" [cart]="cart" ></app-cart-cart>
+<div *ngIf="cartshow;else page">
+    <app-cart-cart *ngFor="let cart of carts" [cart]="cart" ></app-cart-cart>
+</div>
+<ng-template #page>
+    <div class="container">
+        <h1 class=" m-4">No Cart Found !</h1>
+        <button routerLink="/"  class="btn btn-primary">Add Cart</button>
+    </div>
+</ng-template>

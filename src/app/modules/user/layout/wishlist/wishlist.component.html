@@ -1,1 +1,10 @@
-<app-wishlist-card *ngFor="let wishlist of wishlists" [wishlist]="wishlist" ></app-wishlist-card>
+
+<div *ngIf="wishlistshow;else page">
+    <app-wishlist-card *ngFor="let wishlist of wishlists" [wishlist]="wishlist" ></app-wishlist-card>
+</div>
+<ng-template #page>
+    <div class="container">
+        <h1 class=" m-4">No WishList Found !</h1>
+        <button routerLink="/"  class="btn btn-primary">Add Wishlist</button>
+    </div>
+</ng-template>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
   selector: 'app-wishlist-card',
@@ -7,9 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WishlistCardComponent implements OnInit {
   @Input() wishlist:any;
-  constructor() { }
+  constructor(private _wishlistService:WishlistService) { }
 
   ngOnInit(): void {
+    this._wishlistService.shopCardProduct.subscribe((item:any[])=>{
+      console.log(item)
+    })
   }
 
 }

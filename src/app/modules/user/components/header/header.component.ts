@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CartService } from '../../services/cart.service';
 import { WishlistService } from '../../services/wishlist.service';
 
@@ -9,7 +10,6 @@ import { WishlistService } from '../../services/wishlist.service';
 })
 export class HeaderComponent implements OnInit{
 
-  
   cartLength!:number;
   wishListLength!:number;
   showCart:boolean=false;
@@ -20,19 +20,17 @@ export class HeaderComponent implements OnInit{
     ) { }
 
   ngOnInit(): void {
-   
-    this._cartService.getCart().subscribe((cart:any)=>{
-      if(cart.length >0){
-        this.cartLength=cart.length;
-        this.showCart=true;
-      }
+    this._wishlistService.shopCardProduct.subscribe((item:any)=>{
+      if(item.length > 0)
+      this.showWishlist=true;
+      this.wishListLength=item.length;
     })
-
-    this._wishlistService.getWishList().subscribe((wishlist:any)=>{
-      if(wishlist.length >0){
-        this.wishListLength=wishlist.length;
-        this.showWishlist=true;
-      }
+ 
+    this._cartService.cartProduts.subscribe((cart:any)=>{
+        if(cart.length > 0){
+          this.showCart=true;
+          this.cartLength=cart.length;
+        }
     })
   }
 
